@@ -1,0 +1,1107 @@
+/***********************************************************************
+*
+*  Liquid Slider
+*  Kevin Batdorf
+*
+*  http://liquidslider.com
+*
+*  GPL license 
+*
+************************************************************************/
+
+/******************************************************
+* No JavaScript
+* Use this to apply styles when Javascript is disabled,
+* and be sure to include the ".no-js" class in your html 
+* markup.
+*******************************************************/
+.no-js .liquid-slider {
+  height:350px;
+  overflow:scroll;
+}
+
+/******************************************************
+* Preloader
+* Use this to apply styles when Javascript is disabled,
+* and be sure to include the ".no-js" class in your html 
+* markup.
+*******************************************************/
+.ls-preloader {  
+  background: url(../img/loading.gif) #f2f2f2 no-repeat center 75px;
+  opacity:1;
+  /* Do not edit below this line */
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:2;
+}
+
+/******************************************************************
+* Base Styles 
+* The styles here will apply to everything. I recommend you keep
+* the styles in here specific to mobile defices, then use
+* the media queries at the bottom to define further styles for larger
+* screen-sizes. Think Mobile First. But be cautious of how
+* your site will look in older IE browsers.
+*
+* Additional media queries are at the bottom of this document
+******************************************************************/
+.ls-wrapper {
+  margin:0 auto;
+  /* Do not edit below this line */
+  clear: both;
+  overflow: auto;
+  position: relative;
+}
+
+/******************************************************
+* Main Container
+* This is the main container (minus the navigation).
+* Be sure to match the width with the .panel class, 
+* or it won't work properly. Also, width only applies
+* if you are not using the responsive setting.
+*
+* The responsive slider will interpret the width as the
+* max width instead
+*******************************************************/
+.ls-wrapper .liquid-slider {
+  background: #f2f2f2;
+  width: 1030px;
+  /* Do not edit below this line */
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+.ls-wrapper .panel-container {
+  /* Do not edit below this line */
+  position: relative;
+
+}
+.ls-wrapper .liquid-slider .panel-container .fade {
+  /* Do not edit below this line */
+  opacity: 0;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  display: block;
+}
+
+/******************************************************
+* Panels
+* This is for the panels. If you are using the 
+* responsive setting, this will act as the max-width
+* for the entire slider.
+*******************************************************/
+.ls-wrapper .liquid-slider .panel {  
+  width: 1030px;
+  /* Do not edit below this line */
+  display: block;
+  float: left;
+}
+
+/******************************************************
+* These provide a base starting point for images and
+* video. However, you will have to add more rules
+* based on the content you use. Use the @media queries 
+* at the bottom of this file.
+*******************************************************/
+.ls-wrapper .liquid-slider .panel img{
+  /*
+  width:100%;
+  height:auto;  
+  margin:0 5px;
+  */
+}
+
+.ls-wrapper .liquid-slider .panel video {
+  /*
+  width:100%;  
+  height:auto;
+  */
+}
+
+/******************************************************
+* This is mainly used to adjust the padding inside each 
+* panel. If you are using the responsive setting, you
+* need to use the settings below as this will not apply.
+*******************************************************/
+.ls-wrapper .liquid-slider .panel-wrapper {  
+  padding: 20px;
+  /* Do not edit below this line */
+  position:relative;
+}
+
+/*****************************************************
+* This will adjust styles for all navigation tabs
+* less of course the select box used for mobile 
+* navigation. The .current styles will apply only to 
+* the current tab.
+*
+* You may use this section to create navigation for
+* mobile devices if you set mobileNavigation: false
+* Be sure to edit media queries for larger devices below
+* I have included an example below in comments.
+*
+* .currentCrossLink refers to external crosslinking.
+*******************************************************/
+.ls-wrapper .ls-nav a {
+  background: #d8d8d8;
+  color: #333333;
+  margin-right: 1px;
+  padding: 10px 15px;  
+  outline:0;
+}
+.ls-wrapper .ls-nav a:hover {
+  background: #f2f2f2;
+  color: #333333;
+  text-shadow: none;
+}
+.ls-wrapper .ls-nav .current {
+  background: #f2f2f2;
+}
+.currentCrossLink {
+  font-weight: bold;
+}
+.ls-wrapper .ls-nav ul {  
+  padding:0;
+  /* Do not edit below this line */
+  clear: both;
+  display: block;
+  margin: auto;
+  overflow: hidden;
+}
+.ls-wrapper .ls-nav ul li {
+  /* Do not edit below this line */
+  display: inline;
+}
+.ls-wrapper .ls-nav ul li a {
+ 
+  /* Do not edit below this line */
+  display: block;
+  float: left;
+  text-decoration: none;
+}
+/*****************************************************
+* Mobile Menu
+* This will adjust styles for selectbox styles. I have
+* included a simple example to create a custom select
+* box.
+*******************************************************/
+.ls-wrapper .ls-nav {
+  overflow:hidden;
+  clear:both;
+}
+.ls-wrapper .ls-select-box {  
+  /* Delete these if you want the standard select box.
+     Also delete the rules below */
+
+  width: 100%;
+  height: 35px;
+  overflow: hidden;
+  
+}
+.ls-wrapper .ls-select-box select {  
+  /* If you want the standard select box, use 
+  width:100%
+  And delete the rest of the styling here */
+
+  width: 150%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance:none;
+  background: transparent;
+  padding: 5px;
+  font-size: 110%;
+  border: none;
+  height: 35px;
+  cursor:pointer;
+  outline: 0;
+}
+
+/******************************************************
+* Arrows
+* This section refers to both the non-graphical and 
+* graphical navigation arrows. 
+*
+* Some settings will be overwritten when using the 
+* responsive setting.
+*******************************************************/
+.ls-wrapper .ls-nav-left, .ls-wrapper .ls-nav-right {
+  /* Do not edit below this line */
+  float: left;
+}
+.ls-wrapper .ls-nav-left a, .ls-wrapper .ls-nav-right a {
+  /* non-graphical arrows */
+  background: #000;
+  color: #fff;
+  padding: 5px;
+  width: 100px;
+  /* Do not edit below this line */
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+.ls-wrapper .ls-nav-left-arrow, .ls-wrapper .ls-nav-right-arrow {
+  cursor: pointer;
+  /* Do not edit below this line */
+  float: left;
+}
+.ls-wrapper .ls-nav-left-arrow a, .ls-wrapper .ls-nav-right-arrow a {
+  /* Do not edit below this line */
+  display: block;
+}
+.ls-wrapper .ls-nav-left, .ls-wrapper .ls-nav-left-arrow {
+  /* Do not edit below this line */
+  clear: both;
+}
+.ls-wrapper .ls-nav-right-arrow {
+  width: 25px;
+  height: 25px;
+  margin-top: 50px;
+  margin-right: 5px;
+  /* Do not edit below this line */
+  position:relative;
+}
+.ls-wrapper .ls-nav-left-arrow {
+  width: 25px;
+  height: 25px;
+  margin-top: 50px;
+  margin-left: 5px;
+  /* Do not edit below this line */
+  position:relative;
+}
+.ls-wrapper .ls-nav-left-arrow:hover {
+  /* Left graphical arrows hover */
+}
+.ls-wrapper .ls-nav-left-arrow:active {
+  /* Left graphical arrows click */
+}
+.ls-wrapper .ls-nav-right-arrow:hover {
+  /* Right graphical arrows hover */
+}
+.ls-wrapper .ls-nav-right-arrow:active {
+  /* Right graphical arrows click */
+}
+.arrows .liquid-slider {
+  /* Margin between slider and arrows */
+  margin: 0 10px;
+}
+
+/******************************************************
+* Responsive Styles
+* Here are the main responsive styles. This mostly 
+* covers the arrows, and most of the settings can be
+* applied above.
+*******************************************************/
+.ls-responsive .liquid-slider {
+  /* Do not edit below this line */
+  width: 100%;
+  margin: 0;
+}
+.ls-responsive .liquid-slider .panel .panel-wrapper {
+  padding: 10px;
+}
+.ls-responsive .ls-nav-left {
+  /* Left non-graphical arrows */
+  /* Do not edit below this line */
+  position: absolute;
+  left: 0;
+  z-index: 2;
+}
+.ls-responsive .ls-nav-left a {
+  /* Left non-graphical arrows */
+  background: #9A9A9A;
+  width: 80px;
+}
+.ls-responsive .ls-nav-left a:hover {
+  /* Left non-graphical hover */
+  background: #747474;
+}
+.ls-responsive .ls-nav-right {
+  /* Right non-graphical arrows */
+  /* Do not edit below this line */
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+.ls-responsive .ls-nav-right a {
+  /* Right non-graphical arrows */
+  background: #9A9A9A;
+  width: 80px;
+}
+.ls-responsive .ls-nav-right a:hover {
+  /* Right non-graphical arrows hover */
+  background: #747474;
+}
+.ls-responsive .ls-nav-left-arrow {
+  /* Do not edit below this line */
+  position: absolute;
+  left: 0;
+  z-index: 2;
+}
+.ls-responsive .ls-nav-right-arrow {
+  /* Do not edit below this line */
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+
+/******************************************************************
+* Larger Mobile Devices
+* This is for devices like the Galaxy Note or something that's 
+* larger than an iPhone but smaller than a tablet. 
+******************************************************************/
+@media only screen and (min-width: 481px) {
+  .ls-wrapper .liquid-slider .panel img{
+    /* Example */
+    /*
+    width:24%;
+    margin:2px;
+    */
+  }
+
+}
+
+/******************************************************************
+* Tablet & Smaller Laptops
+* This will include tablets and some netbooks.
+******************************************************************/
+@media only screen and (min-width: 768px) {
+  .ls-wrapper .liquid-slider .panel img{
+    /* Example */
+    /*
+    width:24%;
+    */
+  }
+  .ls-responsive .liquid-slider .panel .panel-wrapper {
+    padding: 20px 35px;
+  }
+}
+
+/******************************************************************
+* DESKTOP 
+* This is the average viewing window. So Desktops, Laptops, and 
+* in general anyone not viewing on a mobile device. Here's where
+* you can add resource intensive styles.
+******************************************************************/
+@media only screen and (min-width: 1030px) {
+  
+
+}
+
+/******************************************************************
+* LARGE VIEWING SIZE 
+* This is for the larger monitors and possibly full screen viewers.
+******************************************************************/
+@media only screen and (min-width: 1240px) {
+  
+
+}
+
+/******************************************************************
+* RETINA (2x RESOLUTION DEVICES)
+* This applies to the retina iPhone (4s) and iPad (2,3) along with 
+* other displays with a 2x resolution. You can also create a media
+* query for retina AND a certain size if you want. Go Nuts.
+******************************************************************/
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+  
+
+}
+
+
+
+
+
+
+/*------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+@font-face {
+    font-family: 'NexaBold';
+    src: url('../../fonts/money-saving-hacks/nexa_bold-webfont.eot');
+    src: url('../../fonts/money-saving-hacks/nexa_bold-webfont.eot?#iefix') format('eot'),
+         url('../../fonts/money-saving-hacks/nexa_bold-webfont.woff') format('woff'),
+         url('../../fonts/money-saving-hacks/nexa_bold-webfont.ttf') format('truetype'),
+         url('../../fonts/money-saving-hacks/nexa_bold-webfont.svg#webfontOxG26Ljr') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NexaLight';
+    src: url('../../fonts/money-saving-hacks/nexa_light-webfont.eot');
+    src: url('../../fonts/money-saving-hacks/nexa_light-webfont.eot?#iefix') format('eot'),
+         url('../../fonts/money-saving-hacks/nexa_light-webfont.woff') format('woff'),
+         url('../../fonts/money-saving-hacks/nexa_light-webfont.ttf') format('truetype'),
+         url('../../fonts/money-saving-hacks/nexa_light-webfont.svg#webfontOxG26Ljr') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@-webkit-keyframes wobble{
+	0%{-webkit-transform:translateX(0%)}
+	15%{-webkit-transform:translateX(-30px) rotate(-5deg)}
+	30%{-webkit-transform:translateX(25px) rotate(3deg)}
+	45%{-webkit-transform:translateX(-20px) rotate(-3deg)}
+	60%{-webkit-transform:translateX(15px) rotate(2deg)}
+	75%{-webkit-transform:translateX(-10px) rotate(-1deg)}
+	100%{-webkit-transform:translateX(0%)}
+}
+
+@keyframes wobble{
+	0%{transform:translateX(0%)}
+	15%{transform:translateX(-30px) rotate(-5deg)}
+	30%{transform:translateX(25px) rotate(3deg)}
+	45%{transform:translateX(-20px) rotate(-3deg)}
+	60%{transform:translateX(15px) rotate(2deg)}
+	75%{transform:translateX(-10px) rotate(-1deg)}
+	100%{transform:translateX(0%)}
+}
+
+.wobble{
+	-webkit-animation-name:wobble;
+	animation-name:wobble;
+}
+
+@-webkit-keyframes flash {
+	50% {
+		-webkit-filter: sepia(.3)
+	}
+}
+
+@keyframes flash {
+	50% {
+		filter: sepia(.3)
+	}
+}
+
+@-webkit-keyframes spin {
+	20% {
+		-webkit-transform: rotate(360deg)
+	}
+	100% {
+		-webkit-transform: rotate(360deg)
+	}
+}
+
+@keyframes spin {
+	20% {
+		transform: rotate(360deg)
+	}
+	100% {
+		transform: rotate(360deg)
+	}
+}
+
+.outer-wrap {
+	margin: 0 auto;
+	width: 800px;
+}
+
+.container {
+	width: 800px;
+	background: #e2e2e2;
+	margin-bottom: 30px;
+	float: left;
+}
+
+header {
+	width: 800px;
+	height: 190px;
+	background: url(../../img/money-saving-hacks/head-bg.jpg);
+	float: left;
+}
+
+footer {
+	width: 800px;
+	height: 245px;
+	background: url(../../img/money-saving-hacks/footer-bg.jpg);
+	float: left;
+}
+
+.support-copy {
+  float: left;
+  padding: 20px 40px;
+  font: .9em/1.4em Arial, Helvetica;
+}
+
+.ls-wrapper {
+	position: relative;
+	z-index: 20;
+}
+
+.ls-wrapper .liquid-slider {
+	background: transparent;
+}
+
+#slider-1-nav-ul, #slider-2-nav-ul, #slider-3-nav-ul {
+	position: absolute;
+	top: 67px;
+	right: 40px;
+	z-index: 10;
+}
+
+.slide-count {
+	font: 1em NexaLight, Arial, Helvetica;
+	color: #2e2e2e;
+	position: absolute;
+	right: 50px;
+	top: 200px;
+}
+
+.ls-nav-left-arrow, .ls-nav-right-arrow {
+	display: none;
+}
+
+.next {
+  width: 258px;
+  height: 87px;
+  background: url(../../img/money-saving-hacks/next.jpg) no-repeat top right;
+  position: absolute;
+}
+
+.back {
+  width: 224px;
+  height: 87px;
+  background: url(../../img/money-saving-hacks/back-btn.jpg) no-repeat top right;
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+}
+
+#slider-1-nav-ul li a, #slider-2-nav-ul li a, #slider-3-nav-ul li a {
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	padding: 0;
+	background: #fff;
+	margin-right: 8px;
+}
+
+#slider-1-nav-ul li .current, #slider-3-nav-ul li .current {
+	background: #2e2e2e;
+}
+
+#slider-2-nav-ul li a {
+	background: #666;
+}
+
+#slider-2-nav-ul li .current {
+	background: #fff;
+}
+
+.panel-wrapper {
+	margin-top: 131px;
+	padding: 0 !important;
+	float: left;
+}
+
+.saving {
+	position: relative;
+	top: 0;
+	right: 0;
+}
+
+	.saving img {
+		position: absolute;
+		right: 0;
+		z-index: 20;
+	}
+
+	.vm-face {
+		display: none;
+	}
+
+	.saving .amount {
+		width: 401px;
+		height: 51px;
+		background: url(../../img/money-saving-hacks/saving-amount.png) no-repeat;
+		position: absolute;
+		top: 0;
+		right: 0;
+		font: 1em NexaLight, Arial, Helvetica;
+		padding-top: 15px;
+		padding-left: 70px;
+	}
+
+		.saving .amount span {
+			font-family: NexaBold, Arial, Helvetica;
+		}
+
+	.saving .cover {
+		width: 452px;
+		height: 66px;
+		background: url(../../img/money-saving-hacks/saving-cover.png);
+		position: absolute;
+		top: 0;
+		right: 0;
+		-webkit-transition: 1s;
+		transition: 1s;
+		-webkit-animation: flash 1.2s infinite;
+		animation: flash 1.2s infinite;
+	}
+
+	.saving .cover.slide {
+		right: -452px;
+	}
+
+  .saving .info {
+    position: absolute;
+    top: -20px;
+    left: 350px;
+    padding: 10px;
+    color: #fff;
+    font: .7em Arial, Helvetica;
+    border-radius: 5px;
+    background: #2e2e2e;
+    z-index: 50;
+    display: none;
+  }
+
+  .two .saving .info {
+    left: auto;
+    right: 0;
+  }
+
+.total-saving-bar {
+	width: 800px;
+	height: 49px;
+	background: #2e2e2e;
+	float: left;
+	font: 1.5em/1em NexaLight, Arial, Helvetica;
+	text-transform: uppercase;
+	color: #fff;
+	text-align: center;
+}
+
+	.total-saving-bar p {
+		margin-top: 6px;
+		-webkit-animation-duration: .8s;
+		animation-duration: .8s;
+	}
+
+	.total-saving-bar .amount {
+		color: #ffe700;
+		font: 1.2em NexaBold, Arial, Helvetica;
+	}
+
+.icon {
+	position: absolute;
+	top: 20px;
+	left: 22px;
+	z-index: 20;
+	-webkit-animation: spin 4s 1s infinite;
+	animation: spin 4s 1s infinite;
+}
+
+.total-amount {
+	color: #fff;
+	font: 4.7em NexaBold, Arial, Helvetica;
+	position: absolute;
+	top: 60px;
+	left: 335px;
+}
+
+	.total-amount span {
+		font: .4em NexaLight, Arial, Helvetica;
+	}
+
+  .total-amount .pence {
+    display: block;
+    font-size: .2em;
+    line-height: .1em;
+    margin-left: 35px;
+    color: #999;
+  }
+
+  .two .total-amount .pence {
+    color: #2e2e2e;
+  }
+
+.see-more {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	cursor: pointer;
+	-webkit-transition: .3s;
+	transition: .3s;
+}
+
+.see-more:hover {
+	opacity: .9;
+}
+
+.three .see-more {
+	bottom: 60px;
+}
+
+/*-----------------------------------------------
+Section One
+-----------------------------------------------*/
+
+.one {
+	width: 800px;
+	height: 389px;
+	background: url(../../img/money-saving-hacks/one-bg.jpg) top no-repeat;
+	position: relative;
+	z-index: 30;
+	float: left;
+}
+
+.one .slide5 .panel-wrapper {
+	margin-top: 0;
+	width: 800px;
+	height: 439px;
+	position: relative;
+	z-index: 20;
+}
+
+	.one .next {
+		bottom: 56px;
+		right: 0;
+	}
+
+	.one .panel-wrapper .content {
+		width: 800px;
+		height: 258px;
+		background: url(../../img/money-saving-hacks/one-1.jpg) no-repeat;
+	}
+
+	.one .slide2 .panel-wrapper .content {
+		background: url(../../img/money-saving-hacks/one-2.jpg) no-repeat;
+	}
+
+	.one .slide3 .panel-wrapper .content {
+		background: url(../../img/money-saving-hacks/one-3.jpg) no-repeat;
+	}
+
+	.one .slide4 .panel-wrapper .content {
+		background: url(../../img/money-saving-hacks/one-4.jpg) no-repeat;
+	}
+
+	.one .slide5 .panel-wrapper .content {
+		background: url(../../img/money-saving-hacks/one-5.jpg) no-repeat;
+		height: 439px;
+	}
+
+	.next-sect {
+		width: 400px;
+		height: 160px;
+		position: absolute;
+		bottom: 0;
+		left: 200px;
+		cursor: pointer;
+    z-index: 100;
+	}
+
+
+/*-----------------------------------------------
+Section Two
+-----------------------------------------------*/
+
+.two {
+	width: 800px;
+	height: 448px;
+	background: url(../../img/money-saving-hacks/two-bg.jpg) top no-repeat;
+	position: relative;
+	z-index: 30;
+	float: left;
+	border-top: 1px solid #e2e2e2;
+}
+
+.two .icon {
+	top: 20px;
+	right: 22px;
+	left: auto;
+}
+
+.two .panel-wrapper {
+	margin-top: 130px;
+}
+
+.two .slide4 .panel-wrapper {
+	margin-top: 0;
+	width: 800px;
+	height: 496px;
+	position: relative;
+	z-index: 20;
+}
+
+#slider-2-nav-ul {
+	right: 680px;
+}
+
+	.two .next {
+		bottom: 34px;
+		right: 0;
+	}
+
+	.two .slide-count {
+		top: 272px;
+	}
+
+	.two .panel-wrapper .content {
+		width: 800px;
+		height: 321px;
+		background: url(../../img/money-saving-hacks/two-1.jpg) no-repeat;
+	}
+
+	.two .slide2 .panel-wrapper .content {
+		background: url(../../img/money-saving-hacks/two-2.jpg) no-repeat;
+	}
+
+	.two .slide3 .panel-wrapper .content {
+		background: url(../../img/money-saving-hacks/two-3.jpg) no-repeat;
+	}
+
+	.two .slide4 .panel-wrapper .content {
+		background: url(../../img/money-saving-hacks/two-4.jpg) no-repeat;
+		height: 496px;
+	}
+
+	.two .slide4 .total-amount {
+		color: #2e2e2e;
+		top: 80px;
+	}
+
+	.two .saving {
+		top: 200px;
+		left: 0;
+		width: 473px;
+	}
+
+		.two .saving img {
+			left: 18px;
+		}
+
+		.two .saving .vm-face {
+			left: 0;
+		}
+
+		.two .saving .amount {
+			width: 363px;
+			background: url(../../img/money-saving-hacks/saving-amount-left.png) no-repeat;
+			padding-left: 110px;
+		}
+
+    .two .slide2 .amount {
+      font-size: .9em;
+      line-height: 1.3em;
+      top: 1px;
+    }
+
+		.two .saving .cover {
+			width: 473px;
+			background: url(../../img/money-saving-hacks/saving-cover-left.png) no-repeat;
+			top: 0;
+			left: 0;
+      -webkit-transition: left 1s, opacity 2s;
+			transition: left 1s, opacity 2s;
+		}
+
+		.two .saving .cover.slide {
+			left: -473px;
+			opacity: 0;
+		}
+
+
+/*-----------------------------------------------
+Section Three
+-----------------------------------------------*/
+
+.three {
+	width: 800px;
+	height: 830px;
+	background: url(../../img/money-saving-hacks/three-bg.jpg) top no-repeat;
+	position: relative;
+	z-index: 30;
+	float: left;
+	border-top: 1px solid #e2e2e2;
+	border-bottom: 1px solid #ccc;
+}
+
+.three .panel-wrapper {
+	margin-top: 133px;
+}
+
+#slider-3-nav-ul {
+	right: 40px;
+}
+
+	.three .next {
+		bottom: 0px;
+		right: 0;
+	}
+
+	.three .slide-count {
+		top: 274px;
+	}
+
+	.three .panel-wrapper .content {
+		width: 800px;
+		height: 670px;
+		background: url(../../img/money-saving-hacks/three-1.jpg) no-repeat;
+	}
+
+	.three .slide2 .panel-wrapper .content {
+		background: url(../../img/money-saving-hacks/three-2.jpg) no-repeat;
+	}
+
+
+
+/*-----------------------------------------------
+Section Four
+-----------------------------------------------*/
+
+.four {
+	width: 800px;
+	height: 1103px;
+	background: url(../../img/money-saving-hacks/four-bg.jpg) top no-repeat;
+	position: relative;
+	z-index: 30;
+	float: left;
+	border-bottom: 1px solid #ccc;
+}
+
+.four .icon {
+	top: 20px;
+	right: 22px;
+	left: auto;
+}
+
+
+
+/*-----------------------------------------------
+Section Five
+-----------------------------------------------*/
+
+.five {
+	width: 800px;
+	height: 889px;
+	background: url(../../img/money-saving-hacks/five-bg.jpg) top no-repeat;
+	position: relative;
+	z-index: 30;
+	float: left;
+	border-bottom: 1px solid #ccc;
+}
+
+.brand, .item {
+	position: absolute;
+	-webkit-transition: .5s;
+	transition: .5s;
+	-webkit-transform: scale(.9);
+	transform: scale(.9);
+}
+
+.brand:hover, .item {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.item:hover {
+	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+
+.brand.ebay       { top: 308px; left: 99px; }
+.brand.preloved   { top: 211px; left: 180px; }
+.brand.loot       { top: 141px; left: 291px; }
+.brand.craigslist { top: 141px; left: 419px; }
+.brand.vivastreet { top: 211px; left: 530px; }
+.brand.gumtree    { top: 308px; left: 611px; }
+
+.item.furniture  { top: 471px; left: 93px; }
+.item.guitar     { top: 593px; left: 191px; }
+.item.car        { top: 651px; left: 335px; }
+.item.computing  { top: 593px; left: 481px; }
+.item.much-more  { top: 472px; left: 577px; }
+
+.txt {
+	position: absolute;
+	background: #2e2e2e;
+	padding: 10px;
+	color: #fff;
+	font: .9em Arial, Helvetica;
+	z-index: 50;
+	border-radius: 5px;
+	display: none;
+}
+
+	.txt a {
+		color: #ff0000;
+		text-decoration: none;
+	}
+
+	.txt a:hover {
+		border-bottom: 1px dotted #ff0000;
+	}
+
+.txt.ebay       { top: 270px; left: 60px; }
+.txt.preloved   { top: 173px; left: 141px; }
+.txt.loot       { top: 103px; left: 252px; }
+.txt.craigslist { top: 103px; left: 380px; }
+.txt.vivastreet { top: 173px; left: 493px; }
+.txt.gumtree    { top: 270px; left: 573px; }
+
+.txt.furniture { top: 560px; left: 90px; }
+.txt.guitar    { top: 690px; left: 181px; }
+.txt.car       { top: 740px; left: 340px; }
+.txt.computing { top: 680px; left: 480px; }
+.txt.much-more { top: 565px; left: 630px; }
+
+
+
+/*-----------------------------------------------
+Section Six
+-----------------------------------------------*/
+
+.six {
+	width: 800px;
+	height: 800px;
+	background: url(../../img/money-saving-hacks/six-bg.jpg) top no-repeat;
+	position: relative;
+	z-index: 30;
+	float: left;
+}
+
+.six .icon {
+	top: 20px;
+	right: 22px;
+	left: auto;
+}
+
+.six .news {
+	position: absolute;
+}
+
+.six .txt {
+	max-width: 200px;
+}
+
+.news.google     { top: 139px; left: 320px; }
+.news.ted        { top: 220px; left: 596px; }
+.news.ebooks     { top: 470px; left: 596px; }
+.news.blogs      { top: 559px; left: 333px; }
+.news.news-apps  { top: 468px; left: 73px; }
+.news.news-sites { top: 219px; left: 73px; }
+
+.txt.google     { top: 130px; left: 440px; }
+.txt.ted        { top: 160px; left: 550px; }
+.txt.ebooks     { top: 425px; left: 560px; }
+.txt.blogs      { top: 550px; left: 445px; }
+.txt.news-apps  { top: 390px; left: 30px; }
+.txt.news-sites { top: 159px; left: 30px; }
